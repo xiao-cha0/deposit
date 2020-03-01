@@ -1,14 +1,7 @@
 <template>
   <div>
-    <router-view />
+    <router-view /><!--通过router-view这个标签可以将对应页面的内容（也就是写好的组件）渲染到页面里-->
     <hr />
-    <div>
-      <router-link to="/money">记账</router-link>
-      |
-      <router-link to="/labels">标签</router-link>
-      |
-      <router-link to="/statistics">统计</router-link>
-    </div>
   </div>
 </template>
 
@@ -34,3 +27,8 @@
   }
 }
 </style>
+<script>
+  export default {
+
+  }
+</script>

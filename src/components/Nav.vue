@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="nav">
     <!--通过router-link标签和其自身属性to可以将页面链接与Tab紧密衔接 -->
     <router-link to="/money">记账</router-link>
     |
@@ -16,5 +16,5 @@
 </script>
 
 <style lang="scss" scoped>
-
+.nav{border:1px solid green;}
 </style>

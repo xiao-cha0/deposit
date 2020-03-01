@@ -1,7 +1,6 @@
 <template>
   <div>
     <router-view /><!--通过router-view这个标签可以将对应页面的内容（也就是写好的组件）渲染到页面里-->
-    <hr />
   </div>
 </template>
 

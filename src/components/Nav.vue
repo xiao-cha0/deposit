@@ -24,6 +24,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "~@/assets/style/style.scss";
 nav{
   display: flex;
   box-shadow: 0 0 3px rgba(0,0,0,0.3);
@@ -38,7 +39,7 @@ nav{
       flex-direction: column;
    }
   > .item.selected{
-    color: orange;
+    color: $color-hightlight;
     .icons{
       width: 36px;
       height: 36px;

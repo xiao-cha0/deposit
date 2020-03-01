@@ -1,16 +1,16 @@
 <template>
   <nav>
     <!--通过router-link标签和其自身属性to可以将页面链接与Tab紧密衔接 -->
-    <router-link to="/labels" class="item">
-     <Icon  name="label"/>
+    <router-link to="/labels" class="item" active-class="selected">
+     <Icon class="icons"  name="label"/>
       标签
     </router-link>
-    <router-link to="/money" class="item">
-      <Icon name="money"/>
+    <router-link to="/money" class="item" active-class="selected">
+      <Icon class="icons" name="money"/>
       记账
     </router-link>
-    <router-link to="/statistics" class="item">
-      <Icon name="statistics"/>
+    <router-link to="/statistics" class="item" active-class="selected">
+      <Icon class="icons" name="statistics"/>
       统计
     </router-link>
   </nav>
@@ -36,7 +36,13 @@ nav{
       justify-content: center;
       align-items: center;
       flex-direction: column;
-
    }
+  > .item.selected{
+    color: orange;
+    .icons{
+      width: 36px;
+      height: 36px;
+    }
+  }
 }
 </style>

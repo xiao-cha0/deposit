@@ -16,11 +16,6 @@
     color: black;
     font-size: 16px;
   }
-.clearfix{
-  content:'';
-  display: block;
-  clear: both;
-}
 </style>
 <script>
   export default {

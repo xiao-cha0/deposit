@@ -25,14 +25,18 @@
       }else {
         this.selectedTags.push(tag);
       }
+      this.$emit('update:value',this.selectedTags);
     }
     create(){
       const name = window.prompt('请输入需要添加的标签名');
       if(name === ''){
-        alert('请输入正确的标签名')
-      }else if(this.dataSource){
-        this.$emit('update:dataSource', [...this.dataSource, name])
+        window.alert('请输入正确的标签名');
+      }else if(name === null ){
+        return;
+      } else if (this.dataSource) {
+        this.$emit('update:dataSource', [...this.dataSource, name]);
       }
+
     }
   }
 </script>
@@ -51,7 +55,7 @@
         margin-top: 2px;
         background:#ff930a;
         $h:24px;
-        heigth:$h;
+        height:$h;
         line-height: $h;
         border-radius: $h/2 ;
         padding: 0 8px;

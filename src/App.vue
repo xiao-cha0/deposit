@@ -10,11 +10,11 @@
   body{
     line-height: 1.5;
     font-family: $font-hei;
-    font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: black;
     font-size: 16px;
+    background: rgb(246, 255, 224);
   }
 </style>
 <script>

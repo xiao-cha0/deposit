@@ -36,7 +36,6 @@
       } else if (this.dataSource) {
         this.$emit('update:dataSource', [...this.dataSource, name]);
       }
-
     }
   }
 </script>

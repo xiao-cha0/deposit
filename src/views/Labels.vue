@@ -4,8 +4,8 @@
     <Icon name="return"/>
   </div>
     <ol class="tags">
-      <li v-for="tag in tags" :key="tag">
-        <span >{{tag}}</span>
+      <li v-for="tag in tags" :key="tag.id">
+        <span >{{tag.name}}</span>
         <Icon name="right"/>
       </li>
     </ol>
@@ -46,12 +46,13 @@
   .header{
     padding-left: 16px;
     svg{
+      top:auto;
+      bottom:auto;
       color:#ff930a;
     }
   }
 .tags{
   font-size: 16px;
-  margin-top: 15px;
   padding-left: 16px;
   >li{
     min-height: 44px;

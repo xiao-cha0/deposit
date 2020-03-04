@@ -12,7 +12,7 @@
   import {Component, Prop, Watch} from 'vue-property-decorator';
   @Component
   export default class FromItem extends Vue{
-   value = '';
+   @Prop({default: ''}) value!: string;
    @Prop() fillName!: string;
    @Prop() placeholder?: string;
    @Watch('value')

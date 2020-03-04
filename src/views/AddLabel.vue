@@ -48,12 +48,7 @@
   padding: 7px 16px;
   align-items: center;
   > .title{
-
     padding: 4px 0;
-  }
-  > .left-icon{
-
-
   }
   > .right-icon{
     width: 32px;

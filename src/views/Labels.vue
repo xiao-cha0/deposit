@@ -1,8 +1,9 @@
 <template>
   <Layout>
-  <router-link to="/money" class="header">
-    <Icon name="return"/>
-  </router-link>
+
+     <div  class="header">
+       <Icon name="return" @click="back"/>
+      </div>
     <div class="tags">
       <router-link class="tag" v-for="tag in tags" :key="tag.id"
       :to="`/labels/edit/${tag.id}`">
@@ -41,13 +42,19 @@
           }
      }
    }
+   back(){
+     this.$router.back();
+   }
   }
 </script>
 
 
 <style lang="scss" scoped>
   .header{
-
+    padding-top: 8px;
+    border-bottom:1px solid #e6e6e6;
+    display: flex;
+    align-items: center;
     svg{
       color:#ff930a;
       padding-left: 16px;

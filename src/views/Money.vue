@@ -1,6 +1,5 @@
 <template>
   <Layout class-prefix="layout">
-    {{record}}
     <NumbersPad :value.sync="record.amount" @submit="saveRecord"/>
     <Types :value.sync="record.type" />
     <FromItem fill-name="备注"

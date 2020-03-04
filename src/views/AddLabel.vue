@@ -1,14 +1,16 @@
 <template>
   <Layout>
     <div class="nav-Bar">
-      <Icon class="left-icon" name="left"/>
+      <Icon class="left-icon" name="left" @click="goBack"/>
       <span class="title">编辑标签</span>
       <span class="right-icon"></span>
     </div>
     <div class="Form-wrapper">
-    <FromItem fill-name="标签名" placeholder="请输入标签名"/>
+    <FromItem :value="tag.name"
+              @update:value="update"
+              fill-name="标签名" placeholder="请输入标签名"/>
       <div class="remove">
-        <Button>删除标签</Button>
+        <Button @click="removeTag">删除标签</Button>
       </div>
     </div>
   </Layout>
@@ -24,16 +26,31 @@
     components: {Button, FromItem}
   })
   export default class AddLabel extends Vue {
+    tag?: { id: string; name: string } = undefined;
+
    created(){
      const id = this.$route.params.id;
      tagListModel.fetch;
      const tags =tagListModel.data;
      const tag = tags.filter(t => t.id === id)[0];
      if(tag){
-       console.log(tag);
+       this.tag = tag;
      }else{
        this.$router.replace('/404');
      }
+   }
+   update(name: string){
+     if(this.tag){
+       tagListModel.update(this.tag.id,name)
+     }
+   }
+   removeTag(){
+     if(this.tag){
+       tagListModel.remove(this.tag.id);
+     }
+   }
+   goBack(){
+     this.$router.back();
    }
   }
 </script>

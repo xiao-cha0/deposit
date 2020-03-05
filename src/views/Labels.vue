@@ -13,7 +13,6 @@
     </div>
     <div class="createTag-wrapper">
       <Button class="createTag" @click="createTag" >
-
         新增标签</Button>
     </div>
   </Layout>
@@ -25,21 +24,15 @@
   import {Component} from 'vue-property-decorator';
   import tagListModel from '@/models/tagListModel';
 
-  tagListModel.fetch();
   @Component({
     components: {Layout}
   })
   export default class Labels extends Vue{
-   tags = tagListModel.data;
+   tags = window.tagList;
    createTag(){
      const name = window.prompt('请输入需要添加的标签名');
      if(name){
-       const message = tagListModel.create(name);
-          if(message === 'duplicated'){
-            window.alert('标签名重复，请重新输入')
-          }else if(message === 'success'){
-            window.alert('添加成功');
-          }
+       window.createTag(name);
      }
    }
    back(){

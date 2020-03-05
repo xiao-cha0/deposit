@@ -33,7 +33,9 @@
         window.alert('请输入正确的标签名');
       }else if(name === null ){
         return;
+
       } else if (this.dataSource) {
+        debugger
         this.$emit('update:dataSource', [...this.dataSource, name]);
       }
     }

@@ -4,7 +4,7 @@
       <span class="name">{{this.fillName}}</span>
       <input type="text" :value="value"
              @input="onValueChanged($event.target.value)"
-             :placeholder="this.placeholder">
+             :placeholder="placeholder">
     </label>
   </div>
 </template>
@@ -17,7 +17,6 @@
    @Prop({default: ''}) readonly value!: string;
    @Prop() fillName!: string;
    @Prop() placeholder?: string;
-   @Watch('value')
     onValueChanged(value: string){
      this.$emit('update:value',value)
    }

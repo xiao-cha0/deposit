@@ -35,7 +35,6 @@
         return;
 
       } else if (this.dataSource) {
-        debugger
         this.$emit('update:dataSource', [...this.dataSource, name]);
       }
     }

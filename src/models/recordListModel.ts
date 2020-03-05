@@ -1,4 +1,4 @@
-import clone from '@/clone';
+import clone from '@/components/lib/clone';
 
 const localStoragekeyName = 'recordList';
 const recordListModel = {

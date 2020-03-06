@@ -17,14 +17,15 @@
   @Component({
     computed: {
       tagList(){
-        //TODO
-       // return this.$store.state.fetchTags();
-        return []
+       return this.$store.state.tagList;
       }
     }
   })
   export default class Tags extends Vue{
     selectedTags: string[] = [];
+    created(){
+      this.$store.commit('fetchTags')
+    }
     toggle(tag: string){
       const index = this.selectedTags.indexOf(tag);
       if(index>=0){
@@ -36,11 +37,8 @@
     }
     create(){
       const name = window.prompt('请输入需要添加的标签名');
-      if(!name){
-        return window.alert('请输入正确的标签名')
-      }
-      //TODO
-       //store.createTag(name);
+      if(!name){return window.alert('请输入正确的标签名')}
+      this.$store.commit('createTag',name)
     }
   }
 </script>

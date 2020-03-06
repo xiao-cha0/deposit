@@ -19,27 +19,31 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue';
   import Layout from '@/components/Layout.vue';
   import {Component} from 'vue-property-decorator';
+  import {mixins} from 'vue-class-component';
+  import TagHelper from '@/mixins/TagHelper';
+
+
 
   @Component({
-    components: {Layout}
+    components: {Layout},
+    computed: {
+      tags(){
+        return this.$store.state.tagList;
+      }
+    }
   })
-  export default class Labels extends Vue{
-    //TODO
-   //tags = [];   //store.tagList;
-   createTag(){
-     const name = window.prompt('请输入需要添加的标签名');
-     if(name){
-       //TODO
-      //store.createTag(name);
-     }
+  export default class Labels extends mixins(TagHelper){
+    beforeCreate(){
+      this.$store.commit('fetchTags');
+    }
+    back(){
+      this.$router.back();
+    }
    }
-   back(){
-     this.$router.back();
-   }
-  }
+
+
 </script>
 
 

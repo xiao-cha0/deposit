@@ -15,13 +15,12 @@
 <script lang="ts">
   import Vue from 'vue';
   import Layout from '@/components/Layout.vue';
-  import Types from '@/components/Money/Types.vue';
   import {Component} from 'vue-property-decorator';
   import Type from '@/components/Type.vue';
   import intervalList from '@/constants/intervalList';
   import recordTypeList from '@/constants/recordTypeList';
   @Component({
-    components: {Type, Types, Layout},
+    components: {Type, Layout},
   })
   export default class Statistics extends Vue{
     type = '-';

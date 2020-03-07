@@ -22,33 +22,28 @@
   import FromItem from '@/components/Money/FromItem.vue';
   import Button from '@/components/Button.vue';
   @Component({
-    components: {Button, FromItem}
+    components: {Button, FromItem},
   })
   export default class AddLabel extends Vue {
-    tag?: Tag = undefined;
-
+    get tag(){
+      return this.$store.state.currentTag;
+    }
    created(){
-     //TODO
-     //this. tag = store.findTag(this.$route.params.id);
+     const id = this.$route.params.id;
+     this.$store.commit(('fetchTags'));
+     this.$store.commit('setCurrentTag',id);
      if(!this.tag){
        this.$router.replace('/404');
      }
    }
    update(name: string){
      if(this.tag){
-       //TODO
-      // store.updateTag(this.tag.id,name)
+      this.$store.commit('updateTag',{ id: this.tag.id, name})
      }
    }
    removeTag(){
-     if(this.tag){
-       //TODO
-       return;
-       // if (!store.removeTag(this.tag.id)) {
-       //   window.alert('删除失败');
-       // } else {
-       //   this.$router.back();
-       // }
+     if(this.tag){this.$store.commit('removeTag',this.tag.id)
+
      }
    }
    goBack(){

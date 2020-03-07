@@ -29,7 +29,7 @@ const store =  new Vuex.Store({
           window.alert('标签名重复，请重新输入')
         }else{
           const tag = state.tagList.filter(item => item.id === id)[0];
-          tag.id =tag.name = name;
+          tag.name = name;
           store.commit('saveTags');
         }
       }
@@ -43,6 +43,7 @@ const store =  new Vuex.Store({
         }
       }
       if(index>=0){
+        window.alert('你确定要删除该标签吗？');
         state.tagList.splice(index,1);
         store.commit('saveTags');
         window.alert('刪除成功');
@@ -69,8 +70,9 @@ const store =  new Vuex.Store({
     },
     createTag(state, name: string){
       const names = state.tagList.map(item =>item.name);
-      if(names.indexOf(name)>=0){
+      if(names.indexOf(name)>=0) {
         window.alert('标签名重复，请重新输入');
+        return;
       }
       const id = createId().toString();
       state.tagList.push({id,name: name});

@@ -16,12 +16,14 @@ const tagStore =  {
     if(names.indexOf(name)>=0){
       window.alert('标签名重复，请重新输入');
       return 'duplicated'
+    }else {
+      const id = createId().toString();
+      this.tagList.push({id,name: name});
+      this.saveTags();
+      window.alert('添加成功');
+      return 'success';
     }
-    const id = createId().toString();
-    this.tagList.push({id,name: name});
-    this.saveTags();
-    window.alert('添加成功');
-    return 'success';
+
   },
   removeTag(id: string){
     let index =-1;

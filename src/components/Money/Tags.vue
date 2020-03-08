@@ -18,10 +18,10 @@
   @Component({
   })
   export default class Tags extends mixins(TagHelper){
+    selectedTags: string[] = [];
     get tagList(){
       return this.$store.state.tagList;
     }
-    selectedTags: string[] = [];
     created(){
       this.$store.commit('fetchTags')
     }
@@ -34,7 +34,6 @@
       }
       this.$emit('update:value',this.selectedTags);
     }
-
   }
 </script>
 

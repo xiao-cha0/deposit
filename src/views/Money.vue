@@ -28,7 +28,7 @@
         }
         recordTypeList = recordTypeList;
         record: RecordItem ={
-          Tags: [], FromItem:'',type:'-',amount: 0
+          tags: [], FromItem:'',type:'-',amount: 0
         };
         created(){
           this.$store.commit('fetchRecords');
@@ -41,7 +41,7 @@
         }
   }
 </script>
-<style lang="scss">
+<style lang="scss" >
   .layout-content{
     display: flex;
     flex-direction: column-reverse;

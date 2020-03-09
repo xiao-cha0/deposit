@@ -3,7 +3,7 @@ type RecordItem = {
   FromItem: string;
   type: string;
   amount: number;
-  createdAt: Date;
+  createdAt: Date | string;
 }
 
 type Tag = {
@@ -15,6 +15,7 @@ type RootState ={
   tagList: Tag[];
   currentTag?: Tag;
   createRecordError: Error | null;
+  createTagError: Error | null;
 }
 type TagListModel = {
   data: Tag[];

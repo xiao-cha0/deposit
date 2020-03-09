@@ -3,8 +3,9 @@ type RecordItem = {
   FromItem: string;
   type: string;
   amount: number;
-  createAt?: string ;
+  createdAt: Date;
 }
+
 type Tag = {
   id: string;
   name: string;
@@ -13,6 +14,7 @@ type RootState ={
   recordList: RecordItem[];
   tagList: Tag[];
   currentTag?: Tag;
+  createRecordError: Error | null;
 }
 type TagListModel = {
   data: Tag[];

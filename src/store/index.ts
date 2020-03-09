@@ -5,14 +5,11 @@ import createId from '@/components/lib/createId';
 import router from '@/router';
 
 Vue.use(Vuex);
-type RootState ={
-  recordList: RecordItem[];
-  tagList: Tag[];
-  currentTag?: Tag;
-}
+
 const store =  new Vuex.Store({
   state: {
     recordList: [],
+    createRecordError: null,
     tagList: [],
     currentTag: undefined,
   } as RootState,
@@ -51,33 +48,37 @@ const store =  new Vuex.Store({
       }else{
         window.alert('刪除失敗')
       }
-
     },
     fetchRecords(state) {
       state.recordList = JSON.parse(window.localStorage.getItem('recordList') || '[]') as RecordItem[];
     },
-    createRecord(state,record){
-      const record2: RecordItem = clone(record);
-      record2.createAt = new Date().toISOString();
+    createRecord(state,record: RecordItem){
+      const record2 = clone(record);
+      record2.createdAt = new Date().toISOString();
       state.recordList.push(record2);
       store.commit('saveRecords');
+
     },
     saveRecords(state){
       window.localStorage.setItem('recordList', JSON.stringify(state.recordList))
     },
     fetchTags(state){
        state.tagList =JSON.parse(window.localStorage.getItem('tagList') || '[]');
+       if(!state.tagList || state.tagList.length === 0){
+         store.commit('createTag', '购物');
+         store.commit('createTag', '餐饮');
+         store.commit('createTag', '酒店');
+         store.commit('createTag', '旅行');
+       }
     },
     createTag(state, name: string){
       const names = state.tagList.map(item =>item.name);
       if(names.indexOf(name)>=0) {
-        window.alert('标签名重复，请重新输入');
-        return;
+        return window.alert('标签名重复，请重新输入');
       }
       const id = createId().toString();
       state.tagList.push({id,name: name});
       store.commit('saveTags');
-      window.alert('添加成功');
     },
     saveTags(state){
       window.localStorage.setItem('tagList',JSON.stringify(state.tagList))
